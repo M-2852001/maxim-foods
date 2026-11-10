@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)file:///C:/Users/Maxim%20SE/Downloads/gemini-code-1794242811213.html -->
+<html lang="ar" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxim Foods - قائمة الأسعار الرسمية 2026</title>
+    <link rel="stylesheet" href="./Maxim Foods - BRL 2026_files/all.min.css">
+    <link href="./Maxim Foods - BRL 2026_files/css2" rel="stylesheet">
+    <!-- SheetJS CDN for Excel (.xlsx) Export & Import -->
+    <script src="./Maxim Foods - BRL 2026_files/xlsx.full.min.js.تنزيل"></script>
+    <style>
+        :root {
+            --navy-dark: #0f172a;
+            --navy-header: #131c38;
+            --navy-table-th: #1b264f;
+            --yellow-btn: #f5a623;
+            --yellow-btn-hover: #d98e16;
+            --admin-bg: #f59e0b;
+            --bg-main: #f1f5f9;
+            --card-bg: #ffffff;
+            --border-color: #cbd5e1;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        body.lang-en * { font-family: 'Poppins', 'Cairo', sans-serif; }
+        body { background-color: var(--bg-main); color: var(--text-dark); min-height: 100vh; padding-bottom: 40px; }
+
+        /* Top Header UI */
+        header {
+            background-color: var(--navy-header);
+            color: white;
+            padding: 12px 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .header-container {
+            max-width: 1450px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .header-brand { display: flex; align-items: center; gap: 15px; }
+
+        .logo-box {
+            background: #ffffff;
+            padding: 6px 14px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            height: 55px;
+        }
+
+        .logo-box img { height: 42px; width: auto; object-fit: contain; }
+        .logo-text-fallback { color: var(--navy-dark); font-weight: 900; font-size: 20px; letter-spacing: 1px; }
+
+        .header-info h1 { font-size: 20px; font-weight: 800; color: #ffffff; line-height: 1.2; }
+        .header-info p { font-size: 13px; color: #94a3b8; }
+
+        .header-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+        .btn-ui {
+            padding: 8px 16px;
+            border-radius: 10px;
+            border: none;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .btn-yellow { background-color: var(--yellow-btn); color: var(--navy-dark); }
+        .btn-yellow:hover { background-color: var(--yellow-btn-hover); }
+
+        .btn-dark-pill {
+            background-color: #0b1329;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        .btn-dark-pill.active { border-color: var(--yellow-btn); background-color: #1e293b; }
+
+        .price-mode-switch {
+            background: #0b1329;
+            padding: 4px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .price-mode-btn {
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: none;
+            background: transparent;
+            color: #94a3b8;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .price-mode-btn.active {
+            background-color: var(--yellow-btn);
+            color: var(--navy-dark);
+        }
+
+        /* Admin Bar UI */
+        .admin-bar {
+            background: linear-gradient(90deg, #f59e0b, #fbbf24);
+            padding: 10px 25px;
+            display: none;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .admin-bar.active { display: block; }
+        .admin-container {
+            max-width: 1450px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .admin-title { color: #451a03; font-weight: 800; font-size: 15px; display: flex; align-items: center; gap: 8px; }
+        .admin-buttons { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+        .btn-admin {
+            padding: 7px 14px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
+        }
+        .btn-admin-black { background-color: #0f172a; color: white; }
+        .btn-admin-white { background-color: #ffffff; color: #0f172a; }
+        .btn-admin-darkblue { background-color: #1e293b; color: white; }
+        .btn-admin-green { background-color: #16a34a; color: white; }
+        .btn-admin-red { background-color: #dc2626; color: white; }
+
+        /* Main Container */
+        .main-wrapper { max-width: 1450px; margin: 20px auto; padding: 0 15px; }
+
+        /* Filter Box UI */
+        .filter-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .search-field { position: relative; flex: 1; min-width: 280px; }
+        .search-field input {
+            width: 100%;
+            padding: 10px 42px 10px 15px;
+            border-radius: 10px;
+            border: 1px solid #cbd5e1;
+            font-size: 14px;
+            background: #f8fafc;
+            outline: none;
+        }
+        body.lang-en .search-field input { padding: 10px 15px 10px 42px; }
+        .search-field i { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: #94a3b8; }
+        body.lang-en .search-field i { right: auto; left: 14px; }
+
+        .filter-group { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        
+        .pill-btn {
+            padding: 7px 16px;
+            border-radius: 20px;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: var(--text-dark);
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .pill-btn.active { background: #0f172a; color: white; border-color: #0f172a; }
+
+        /* Table Card UI */
+        .table-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border: 1px solid #e2e8f0;
+        }
+
+        .table-header-bar {
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .table-title { display: flex; align-items: center; gap: 10px; }
+        .table-title-accent { width: 6px; height: 24px; background-color: #0f172a; border-radius: 4px; }
+        .table-title h2 { font-size: 18px; font-weight: 800; color: #0f172a; }
+        .table-title p { font-size: 12px; color: #64748b; }
+
+        .tag-yellow {
+            background-color: #fef3c7;
+            color: #d97706;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 800;
+            border: 1px solid #fde68a;
+        }
+
+        table { width: 100%; border-collapse: collapse; text-align: right; }
+        body.lang-en table { text-align: left; }
+
+        thead tr { background-color: var(--navy-table-th); color: white; }
+        th { padding: 14px 16px; font-size: 13px; font-weight: 700; }
+        td { padding: 14px 16px; border-bottom: 1px solid #f1f5f9; font-size: 14px; }
+        tbody tr:hover { background-color: #f8fafc; }
+
+        .unit-badge { background: #f1f5f9; padding: 4px 10px; border-radius: 6px; font-weight: 700; color: #475569; display: inline-block; font-size: 12px; }
+        
+        .price-box {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            padding: 6px 12px;
+            border-radius: 8px;
+            color: #d97706;
+            font-weight: 800;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        .action-btns { display: flex; gap: 6px; }
+        .btn-act { width: 32px; height: 32px; border-radius: 6px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .btn-act-edit { background-color: #dbeafe; color: #2563eb; }
+        .btn-act-del { background-color: #fee2e2; color: #dc2626; }
+
+        /* Modals UI */
+        .modal {
+            display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6);
+            z-index: 1000; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(2px);
+        }
+        .modal.active { display: flex; }
+        .modal-body {
+            background: white; border-radius: 16px; padding: 25px; width: 100%; max-width: 520px;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+        .form-item { margin-bottom: 14px; }
+        .form-item label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 5px; color: #334155; }
+        .form-item input, .form-item select {
+            width: 100%; padding: 10px 14px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 14px; outline: none;
+        }
+
+        @media print {
+            .header-actions, .admin-bar, .filter-card, .btn-act, th:last-child, td:last-child { display: none !important; }
+            body { background: white; }
+            .table-card { box-shadow: none; border: none; }
+        }
+    </style>
+</head>
+<body class="">
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="header-brand">
+                <div class="logo-box" id="logoBox">
+                    <img id="companyLogo" src="data:image/jpeg;base64,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SseCTMTMBpL4Q33Dh0VorFqd9asaVW9ULO1edSa98KZFm487Ph8WNDBYSwsDg7ccw38VnRWrdo9xyUSmVqmy03KRm8sSFHZzNcPAheCpXDVoLQqoarS9J7elpzY+WhyjWnI6bq0ruEaKhBeYHprMNXNuy8tcU/Bm5hkJjHRobCwPIGCdyc5WueJfmp1X4kritCFqhXJCkmfEBsGBOOZysPc3uC2dw5KVbLCUEuwQWgNbDA2AGwC8SzQbR5lbiXJ/FzQvunFf5R018Fb5Qu8SfFUUbmFLPHcq7nUaeaMmz6lAq7L9uerwzDBMKo1Ex2kkZ6YCumABgFfODBhy7BCgMayG0YDQOirZs44eT615atRzeQVddgpAPeqkXnUHnLBG2cYUqMb5Uq4AiIgIByhOEA6qCDlUxy1yAWtd8YZQhvgFJz3JjI3RPnAIB7sKcDOcJjA26oM96N84A5W7jCbAbBSiAgAY6JkZwpUYGcqcAYx0TqpROwIwE5WkYwoOcqpRtS5BGB4JyjOcbqUUfcEAYOwTlHgm6AEKrvyAGtAwAmR0wpUJwASFGx69UA8VJHgmF2A28E5R1wpUHPcqeEAQD1CpGB0Gyq3IUAFVRx3AAAKDcEIQc5U74VEfVAjYdApAHcOqjBUnPcqpcIEHbYIACp37wijKawCCcbBOoKqRTjKwCnG2VI2CehSiWI4BBA64VJ36qrqo5fFTHgEgqCN1Jz3BN8Kh4k8AjAHepw074VOD4KrcDZThQWUCUUD0qVOM8gggHqmBjGE87wUptAUEA9VKJnAKSMnoqlG6lSnkEFRvnOFUo3RvAGADkBMDOcbqUT7gowB3dVUGtHQIRlDnuUN4WQQQ0HPKMoAM5A3UkZUYICPGMgk4xuqRgdAAqhnvTG6RaaBKjODjCDPepRPIIODsQnQbKUTaCnYjJCOa1484AqVKJYBGB4dExnrupUb+CNZAAA2AQNA6DClFK4BAz3lSiJkBEREAiIpAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREB//2Q==" alt="Maxim Foods" style="display: block;">
+                    <span id="logoTextFallback" class="logo-text-fallback" style="display: none;">MAXIM FOODS</span>
+                </div>
+                <div class="header-info">
+                    <h1 id="headerTitle">Official Price List 2026/11/09</h1>
+                    <p id="headerSubtitle">ماكسيم فود لتصنيع وتوريد المواد الغذائية</p>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <div class="price-mode-switch">
+                    <span id="txtPriceViewLabel" style="color:#94a3b8; font-size:12px; font-weight:700; padding:0 6px;">عرض السعر:</span>
+                    <button class="price-mode-btn active" id="btnModeCash" onclick="setPriceMode('cash')">
+                        <i class="fa-solid fa-money-bill-wave"></i> <span id="txtCashLabel">كاش (Cash)</span>
+                    </button>
+                    <button class="price-mode-btn" id="btnModeCredit" onclick="setPriceMode('credit')">
+                        <i class="fa-regular fa-credit-card"></i> <span id="txtCreditLabel">كريديت (Credit)</span>
+                    </button>
+                </div>
+
+                <button class="btn-ui btn-dark-pill" id="btnAdminToggle" onclick="handleAdminToggle()">
+                    <i class="fa-solid fa-gear"></i> <span id="txtAdminBtn">وضع الأدمن ⚙️</span>
+                </button>
+
+                <button class="btn-ui btn-dark-pill" onclick="toggleLanguage()">
+                    <i class="fa-solid fa-globe"></i> <span id="langText">English</span>
+                </button>
+
+                <button class="btn-ui btn-yellow" onclick="window.print()">
+                    <i class="fa-solid fa-print"></i> <span id="txtPrintBtn">طباعة / PDF</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Admin Panel Bar -->
+    <div class="admin-bar" id="adminBar">
+        <div class="admin-container">
+            <div class="admin-title">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <span id="txtAdminPanelTitle">لوحة تحكم الأدمن (Admin Panel)</span>
+            </div>
+            <div class="admin-buttons">
+                <button class="btn-admin btn-admin-black" onclick="openItemModal()">
+                    <i class="fa-solid fa-plus-circle"></i> <span id="btnAddItemTxt">إضافة صنف جديد</span>
+                </button>
+                <button class="btn-admin btn-admin-white" onclick="openCategoryManageModal()">
+                    <i class="fa-solid fa-folder-plus"></i> <span id="btnManageCatTxt">إدارة المجموعات</span>
+                </button>
+                <button class="btn-admin btn-admin-darkblue" onclick="openHeadersModal()">
+                    <i class="fa-solid fa-pen-to-square"></i> <span id="btnHeadersTxt">تعديل رؤوس الجدول</span>
+                </button>
+
+                <!-- New Setting Buttons -->
+                <button class="btn-admin btn-admin-darkblue" onclick="openTitleEditModal()">
+                    <i class="fa-solid fa-heading"></i> <span id="btnEditTitleTxt">تعديل مسمى العنوان</span>
+                </button>
+                <button class="btn-admin btn-admin-darkblue" onclick="openPasswordChangeModal()">
+                    <i class="fa-solid fa-key"></i> <span id="btnChangePassTxt">تغيير كلمة السر</span>
+                </button>
+
+                <button class="btn-admin btn-admin-darkblue" onclick="openLogoModal()">
+                    <i class="fa-solid fa-image"></i> <span id="btnLogoTxt">تغيير اللوجو 🖼️</span>
+                </button>
+                <button class="btn-admin btn-admin-green" onclick="exportDataExcel()">
+                    <i class="fa-solid fa-file-excel"></i> <span id="btnExportTxt">تصدير إكسيل (XLSX)</span>
+                </button>
+                <button class="btn-admin btn-admin-green" onclick="triggerImportExcel()">
+                    <i class="fa-solid fa-file-import"></i> <span id="btnImportTxt">استيراد إكسيل (XLSX)</span>
+                </button>
+                <input type="file" id="importExcelInput" accept=".xlsx, .xls" style="display:none;" onchange="importDataExcel(event)">
+                <button class="btn-admin btn-admin-red" onclick="resetToDefault()">
+                    <i class="fa-solid fa-rotate-right"></i> <span id="btnResetTxt">استعادة الافتراضي</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-wrapper">
+        <!-- Search and Filter Bar -->
+        <div class="filter-card">
+            <div class="search-field">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="ابحث باسم الصنف..." oninput="renderTable()">
+            </div>
+
+            <div class="filter-group">
+                <div class="state-pills" id="statePills"><button class="pill-btn ">الكل</button><button class="pill-btn ">مبرد (Chilled) ❄️</button><button class="pill-btn active">مجمد (Frozen) 🧊</button><button class="pill-btn ">حي (Live) 🦞</button></div>
+            </div>
+
+            <div class="filter-group">
+                <div class="category-pills" id="categoryPills"><button class="pill-btn">الكل</button><button class="pill-btn">salmon</button><button class="pill-btn">shrimps</button><button class="pill-btn">fish</button><button class="pill-btn">shellfish</button><button class="pill-btn">seafood specialities</button><button class="pill-btn active">Breaded</button><button class="pill-btn">smoked salamon</button></div>
+            </div>
+        </div>
+
+        <!-- Price List Table Card -->
+        <div class="table-card">
+            <div class="table-header-bar">
+                <div class="table-title">
+                    <div class="table-title-accent"></div>
+                    <div>
+                        <h2 id="txtTableSubHeading">قائمة أسعار المنتجات المتاحة</h2>
+                        <p id="txtTableUpdateDate">تاريخ التحديث الرسمي: 2026-11-09</p>
+                    </div>
+                </div>
+                <div class="tag-yellow" id="countTag">10 صنف</div>
+            </div>
+
+            <table>
+                <thead>
+                    <tr id="tableHeaderRow">
+                <th style="width:40px;">#</th>
+                <th>اسم الصنف</th>
+                <th>بلد المنشأ</th>
+                <th>حالة المنتج</th>
+                <th>الوحدة</th>
+                <th>سعر الكاش</th>
+                <th>سعر الكريديت</th>
+            </tr>
+                </thead>
+                <tbody id="priceTableBody"><tr>
+                    <td style="color:#94a3b8; font-weight:700;">1</td>
+                    <td>
+                        <div style="font-weight:800; color:#0f172a;">سولي جمبري اورجينال بريديد عادي 400 جرام</div>
+                        <div style="font-size:11px; color:#94a3b8;">Soly Regular Original Breaded Shrimp 400 gram</div>
+                    </td>
+                    <td><span class="unit-badge" style="background:#e2e8f0; color:#1e293b;">Egypt</span></td>
+                    <td><span class="unit-badge">مجمد 🧊</span></td>
+                    <td><span class="unit-badge">kilo </span></td>
+                    <td><div class="price-box">650 ج.م</div></td>
+                    <td><div class="price-box" style="background:#f1f5f9; border-color:#cbd5e1; color:#0f172a;">750 ج.م</div></td>
+                    
+                </tr><tr>
+                    <td style="color:#94a3b8; font-weight:700;">2</td>
+                    <td>
+                        <div style="font-weight:800; color:#0f172a;">سولي جمبري اورجينال بريديد سبايسي 400 جرام</div>
+                        <div style="font-size:11px; color:#94a3b8;">Soly Regular Original Breaded Shrimp Spicy 400 gram</div>
+                    </td>
+                    <td><span class="unit-badge" style="background:#e2e8f0; color:#1e293b;">Egypt</span></td>
+                    <td><span class="unit-badge">مجمد 🧊</span></td>
+                    <td><span class="unit-badge">kilo </span></td>
+                    <td><div class="price-box">650 ج.م</div></td>
+                    <td><div class="price-box" style="background:#f1f5f9; border-color:#cbd5e1; color:#0f172a;">750 ج.م</div></td>
+                    
+                </tr><tr>
+                    <td style="color:#94a3b8; font-weight:700;">3</td>
+                    <td>
+                        <div style="font-weight:800; color:#0f172a;">سولي جمبري ساندويتش بريديد عادي 400 جرام</div>
+                        <div style="font-size:11px; color:#94a3b8;">Soly Shrimp Breaded Sandwich Regular 400 gram</div>
+                    </td>
+                    <td><span class="unit-badge" style="background:#e2e8f0; color:#1e293b;">Egypt</span></td>
+                    <td><span class="unit-badge">مجمد 🧊</span></td>
+                    <td><span class="unit-badge">kilo </span></td>
+                    <td><div class="price-box">650 ج.م</div></td>
+                    <td><div class="price-box" style="background:#f1f5f9; border-color:#cbd5e1; color:#0f172a;">750 ج.م</div></td>
+                    
+                </tr><tr>
+                    <td style="color:#94a3b8; font-weight:700;">4</td>
+                    <td>
+                        <div style="font-weight:800; color:#0f172a;">سولي جمبري ساندويتش بريديد سبايسي 400 جرام</div>
+                        <div style="font-size:11px; color:#94a3b8;">Soly Shrimp Breaded Spicy Sandwich 400 gram</div>
+                    </td>
+                    <td><span class="unit-badge" style="background:#e2e8f0; color:#1e293b;">Egypt</span></td>
+                    <td><span class="unit-badge">مجمد 🧊</span></td>
+                    <td><span class="unit-badge">kilo </span></td>
+                    <td><div class="price-box">650 ج.م</div></td>
+                    <td><div class="price-box" style="background:#f1f5f9; border-color:#cbd5e1; color:#0f172a;">750 ج.م</div></td>
+                    
+                </tr><tr>
+                    <td style="color:#94a3b8; font-weight:700;">5</td>
+                    <td>
+                        <div style="font-weight:800; color:#0f172a;">سولي برجر جمبري 400 جرام</div>
+                        <div style="font-size:11px; color:#94a3b8;">Soly Shrimp Burger 400 gram</div>
+                    </td>
+                    <td><span class="unit-badge" style="background:#e2e8f0; color:#1e293b;">Egypt</span></td>
+                    <td><span class="unit-badge">مجمد 🧊</span></td>
+                    <td><span class="unit-badge">kilo </span></td>
+                    <td><div class="price-box">900 ج.م</div></td>
+                    <td><div class="price-box" style="background:#f1f5f9; border-color:#cbd5e1; color:#0f172a;">1,000 ج.م</div></td>
+                    
+                </tr><tr>
+                    <td style="color:#94a3b8; font-weight:700;">6</td>
+                    <td>
+                        <div style="font-weight:800; color:#0f172a;">كافيلي كراب روكتس 400 جم</div>
+                        <div style="font-size:11px; color:#94a3b8;">crab rockets 400 gm</div>
+                    </td>
+                    <td><span class="unit-badge" style="background:#e2e8f0; color:#1e293b;">Egypt</span></td>
+                    <td><span class="unit-badge">مجمد 🧊</span></td>
+                    <td><span class="unit-badge">kilo </span></td>
+                    <td><div class="price-box">1,200 ج.م</div></td>
+                    <td><div class="price-box" style="background:#f1f5f9; border-color:#cbd5e1; color:#0f172a;">1,200 ج.م</div></td>
+                    
+                </tr><tr>
+                    <td style="color:#94a3b8; font-weight:700;">7</td>
+                    <td>
+                        <div style="font-weight:800; color:#0f172a;">كافيلي فيش فينجر 400 جرام</div>
+                        <div style="font-size:11px; color:#94a3b8;">Caviale Fish Finger 400 gram</div>
+                    </td>
+                    <td><span class="unit-badge" style="background:#e2e8f0; color:#1e293b;">Egypt</span></td>
+                    <td><span class="unit-badge">مجمد 🧊</span></td>
+                    <td><span class="unit-badge">kilo </span></td>
+                    <td><div class="price-box">550 ج.م</div></td>
+                    <td><div class="price-box" style="background:#f1f5f9; border-color:#cbd5e1; color:#0f172a;">650 ج.م</div></td>
+                    
+                </tr><tr>
+                    <td style="color:#94a3b8; font-weight:700;">8</td>
+                    <td>
+                        <div style="font-weight:800; color:#0f172a;">كافيالي سامبوسك جمبري و لحم كابوريا 300 غرام</div>
+                        <div style="font-size:11px; color:#94a3b8;">Caviale Sambosak shrimps and crab meat 300 Gram</div>
+                    </td>
+                    <td><span class="unit-badge" style="background:#e2e8f0; color:#1e293b;">Egypt</span></td>
+                    <td><span class="unit-badge">مجمد 🧊</span></td>
+                    <td><span class="unit-badge">kilo </span></td>
+                    <td><div class="price-box">750 ج.م</div></td>
+                    <td><div class="price-box" style="background:#f1f5f9; border-color:#cbd5e1; color:#0f172a;">750 ج.م</div></td>
+                    
+                </tr><tr>
+                    <td style="color:#94a3b8; font-weight:700;">9</td>
+                    <td>
+                        <div style="font-weight:800; color:#0f172a;">سولي جمبري كنافه بريميم 400 جرام</div>
+                        <div style="font-size:11px; color:#94a3b8;">Soly Shrimp Kunafa Premium 400 gram</div>
+                    </td>
+                    <td><span class="unit-badge" style="background:#e2e8f0; color:#1e293b;">Egypt</span></td>
+                    <td><span class="unit-badge">مجمد 🧊</span></td>
+                    <td><span class="unit-badge">kilo </span></td>
+                    <td><div class="price-box">740 ج.م</div></td>
+                    <td><div class="price-box" style="background:#f1f5f9; border-color:#cbd5e1; color:#0f172a;">860 ج.م</div></td>
+                    
+                </tr><tr>
+                    <td style="color:#94a3b8; font-weight:700;">10</td>
+                    <td>
+                        <div style="font-weight:800; color:#0f172a;">كافيلي جمبري باتر فلاي بريديد 400 جرام</div>
+                        <div style="font-size:11px; color:#94a3b8;">Caviale Shrimp Butterflay Breaded 400 gram</div>
+                    </td>
+                    <td><span class="unit-badge" style="background:#e2e8f0; color:#1e293b;">Egypt</span></td>
+                    <td><span class="unit-badge">مجمد 🧊</span></td>
+                    <td><span class="unit-badge">kilo </span></td>
+                    <td><div class="price-box">850 ج.م</div></td>
+                    <td><div class="price-box" style="background:#f1f5f9; border-color:#cbd5e1; color:#0f172a;">950 ج.م</div></td>
+                    
+                </tr></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal: Password Protection -->
+    <div class="modal" id="passwordModal">
+        <div class="modal-body">
+            <h3 style="margin-bottom: 18px; color:#0f172a;" id="lblAdminAuth">تسجيل الدخول لوضع الأدمن</h3>
+            <div class="form-item">
+                <label id="lblEnterPassword">أدخل كلمة السر للدخول للإعدادات:</label>
+                <input type="password" id="adminPassInput" placeholder="****">
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
+                <button class="btn-ui btn-dark-pill" onclick="closeModal('passwordModal')">إلغاء</button>
+                <button class="btn-ui btn-yellow" onclick="verifyAdminPassword()">دخول</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Edit Header Title & Subtitle -->
+    <div class="modal" id="titleEditModal">
+        <div class="modal-body">
+            <h3 style="margin-bottom: 18px; color:#0f172a;" id="lblModalTitleSettings">تعديل عنوان ومسمى النظام</h3>
+            <div class="form-item">
+                <label>العنوان الرئيسي (عربي)</label>
+                <input type="text" id="inputTitleAr">
+            </div>
+            <div class="form-item">
+                <label>العنوان الرئيسي (English)</label>
+                <input type="text" id="inputTitleEn">
+            </div>
+            <div class="form-item">
+                <label>المسمى الفرعي (عربي)</label>
+                <input type="text" id="inputSubtitleAr">
+            </div>
+            <div class="form-item">
+                <label>المسمى الفرعي (English)</label>
+                <input type="text" id="inputSubtitleEn">
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
+                <button class="btn-ui btn-dark-pill" onclick="closeModal('titleEditModal')">إلغاء</button>
+                <button class="btn-ui btn-yellow" onclick="saveTitleSettings()">حفظ التغييرات</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Change Password -->
+    <div class="modal" id="changePassModal">
+        <div class="modal-body">
+            <h3 style="margin-bottom: 18px; color:#0f172a;" id="lblChangePassTitle">تغيير كلمة السر</h3>
+            <div class="form-item">
+                <label>كلمة السر الحالية</label>
+                <input type="password" id="oldPassInput">
+            </div>
+            <div class="form-item">
+                <label>كلمة السر الجديدة</label>
+                <input type="password" id="newPassInput">
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
+                <button class="btn-ui btn-dark-pill" onclick="closeModal('changePassModal')">إلغاء</button>
+                <button class="btn-ui btn-yellow" onclick="saveNewPassword()">حفظ كلمة السر</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Add / Edit Product -->
+    <div class="modal" id="itemModal">
+        <div class="modal-body">
+            <h3 style="margin-bottom: 18px; color:#0f172a;" id="modalItemTitle">إضافة صنف جديد</h3>
+            <div class="form-item"><label id="lblItemAr">اسم الصنف (عربي)</label><input type="text" id="itemNameAr"></div>
+            <div class="form-item"><label id="lblItemEn">اسم الصنف (English)</label><input type="text" id="itemNameEn"></div>
+            <div class="form-item"><label id="lblItemOrigin">بلد المنشأ (Origin)</label><input type="text" id="itemOrigin" placeholder="مثال: النرويج"></div>
+            <div class="form-item">
+                <label id="lblItemCat">المجموعة (التصنيف)</label>
+                <select id="itemCategory"><option value="salmon">salmon</option><option value="shrimps">shrimps</option><option value="fish">fish</option><option value="shellfish">shellfish</option><option value="seafood specialities">seafood specialities</option><option value="Breaded">Breaded</option><option value="smoked salamon">smoked salamon</option></select>
+            </div>
+            <div class="form-item">
+                <label id="lblItemState">حالة المنتج</label>
+                <select id="itemState">
+                    <option value="مجمد">مجمد (Frozen)</option>
+                    <option value="مبرد">مبرد (Chilled)</option>
+                    <option value="حي">حي (Live)</option>
+                </select>
+            </div>
+            <div class="form-item"><label id="lblItemUnit">الوحدة</label><input type="text" id="itemUnit" value="كيلو"></div>
+            <div class="form-item"><label id="lblItemCash">سعر الكاش (ج.م)</label><input type="number" id="itemCashPrice"></div>
+            <div class="form-item"><label id="lblItemCredit">سعر الكريديت (ج.م)</label><input type="number" id="itemCreditPrice"></div>
+            
+            <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
+                <button class="btn-ui btn-dark-pill" onclick="closeModal('itemModal')">إلغاء</button>
+                <button class="btn-ui btn-yellow" onclick="saveItem()">حفظ البيانات</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Manage Categories -->
+    <div class="modal" id="categoryModal">
+        <div class="modal-body">
+            <h3 style="margin-bottom: 18px; color:#0f172a;" id="lblManageCatTitle">إدارة المجموعات والجداول</h3>
+            <div class="form-item">
+                <label id="lblAddCat">إضافة مجموعة جديدة</label>
+                <div style="display: flex; gap: 8px;">
+                    <input type="text" id="newCatInput" placeholder="اسم المجموعة بالعربي">
+                    <button class="btn-ui btn-yellow" onclick="addNewCategory()">إضافة</button>
+                </div>
+            </div>
+            <hr style="margin: 15px 0; border: none; border-top: 1px solid #e2e8f0;">
+            <div class="form-item">
+                <label id="lblDelCat">المجموعات الحالية (اختر للحذف)</label>
+                <select id="deleteCatSelect"><option value="salmon">salmon</option><option value="shrimps">shrimps</option><option value="fish">fish</option><option value="shellfish">shellfish</option><option value="seafood specialities">seafood specialities</option><option value="Breaded">Breaded</option><option value="smoked salamon">smoked salamon</option></select>
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: space-between; margin-top: 20px;">
+                <button class="btn-ui" style="background:#ef4444; color:white;" onclick="deleteSelectedCategory()">حذف المجموعة</button>
+                <button class="btn-ui btn-dark-pill" onclick="closeModal('categoryModal')">إغلاق</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Edit Table Headers -->
+    <div class="modal" id="headersModal">
+        <div class="modal-body">
+            <h3 style="margin-bottom: 18px; color:#0f172a;" id="lblHeaderEditTitle">تعديل رؤوس الجدول للمجموعة</h3>
+            <div class="form-item">
+                <label id="lblSelectHeaderCat">اختر المجموعة لتخصيص أعمدتها</label>
+                <select id="headerCatSelect" onchange="loadCatHeadersInModal()"><option value="salmon">salmon</option><option value="shrimps">shrimps</option><option value="fish">fish</option><option value="shellfish">shellfish</option><option value="seafood specialities">seafood specialities</option><option value="Breaded">Breaded</option><option value="smoked salamon">smoked salamon</option></select>
+            </div>
+            <div class="form-item">
+                <label id="lblHeaderColNames">رؤوس الأعمدة (مفصولة بفواصل)</label>
+                <input type="text" id="catHeadersInput" placeholder="مثال: #, اسم الصنف, بلد المنشأ, حالة المنتج, الوحدة, سعر الكاش, سعر الكريديت">
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
+                <button class="btn-ui btn-dark-pill" onclick="closeModal('headersModal')">إلغاء</button>
+                <button class="btn-ui btn-yellow" onclick="saveCategoryHeaders()">حفظ العناوين</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Change Logo -->
+    <div class="modal" id="logoModal">
+        <div class="modal-body">
+            <h3 style="margin-bottom: 18px; color:#0f172a;" id="lblChangeLogoTitle">تغيير اللوجو يدويًا</h3>
+            <div class="form-item">
+                <label id="lblUploadLogo">رفع صورة الشعار من الجهاز</label>
+                <input type="file" id="logoFileInput" accept="image/*" onchange="handleLogoUpload(event)">
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
+                <button class="btn-ui btn-dark-pill" onclick="closeModal('logoModal')">إغلاق</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'ar';
+        let isAdmin = false;
+        let priceDisplayMode = 'cash';
+        let selectedCategory = 'all';
+        let selectedState = 'all';
+        let editingProductId = null;
+
+        // Admin Security Password System
+        let adminPassword = localStorage.getItem('maxim_admin_pass') || '1234';
+
+        // Title and Subtitle Data
+        let appTitles = JSON.parse(localStorage.getItem('maxim_title_data')) || {
+            titleAr: 'قائمة الأسعار الرسمية 2026/11/09',
+            titleEn: 'Official Price List 2026/11/09',
+            subtitleAr: 'ماكسيم فود لتصنيع وتوريد المواد الغذائية',
+            subtitleEn: 'Maxim Foods Manufacturing & Supply'
+        };
+
+        let categories = JSON.parse(localStorage.getItem('maxim_cat_v3')) || [
+            { id: 'all', nameAr: 'الكل', nameEn: 'All', headers: ['#', 'اسم الصنف', 'بلد المنشأ', 'حالة المنتج', 'الوحدة', 'سعر الكاش', 'سعر الكريديت'], headersEn: ['#', 'Product Name', 'Origin', 'Status', 'Unit', 'Cash Price', 'Credit Price'] },
+            { id: 'سلمون', nameAr: 'سلمون', nameEn: 'Salmon', headers: ['#', 'اسم الصنف', 'بلد المنشأ', 'حالة المنتج', 'الوحدة', 'سعر الكاش', 'سعر الكريديت'], headersEn: ['#', 'Product Name', 'Origin', 'Status', 'Unit', 'Cash Price', 'Credit Price'] },
+            { id: 'فيليه', nameAr: 'فيليه', nameEn: 'Fillet', headers: ['#', 'اسم الصنف', 'بلد المنشأ', 'حالة المنتج', 'الوحدة', 'سعر الكاش', 'سعر الكريديت'], headersEn: ['#', 'Product Name', 'Origin', 'Status', 'Unit', 'Cash Price', 'Credit Price'] },
+            { id: 'أسماك كاملة', nameAr: 'أسماك كاملة', nameEn: 'Whole Fish', headers: ['#', 'اسم الصنف', 'بلد المنشأ', 'حالة المنتج', 'الوحدة', 'سعر الكاش', 'سعر الكريديت'], headersEn: ['#', 'Product Name', 'Origin', 'Status', 'Unit', 'Cash Price', 'Credit Price'] }
+        ];
+
+        let products = JSON.parse(localStorage.getItem('maxim_prod_v3')) || [
+            { id: 1, nameAr: 'سلمون كامل نرويجي 4-5 سي بورن', nameEn: 'Salmon Whole 4-5 /Kg Seaborn', origin: 'النرويج', originEn: 'Norway', state: 'مجمد', category: 'سلمون', unit: 'كيلو', unitEn: 'kg', cash: 570, credit: 570 },
+            { id: 2, nameAr: 'سالمون ساشيمى قطع مبرد', nameEn: 'Salmon Sashimi Cuts Chilled', origin: 'النرويج', originEn: 'Norway', state: 'مبرد', category: 'سلمون', unit: 'كيلو', unitEn: 'kg', cash: 2500, credit: 2500 },
+            { id: 3, nameAr: 'سمك بوري كامل مجمد 2000-3000جم', nameEn: 'Farm Bouri Whole Frozen 2-3kg', origin: 'مصر', originEn: 'Egypt', state: 'مجمد', category: 'أسماك كاملة', unit: 'كيلو', unitEn: 'kg', cash: 370, credit: 400 },
+            { id: 4, nameAr: 'سمك قاروص كامل سوبر 500-1000جم', nameEn: 'Super Seabass Whole 500-1000g', origin: 'مصر', originEn: 'Egypt', state: 'مبرد', category: 'أسماك كاملة', unit: 'كيلو', unitEn: 'kg', cash: 700, credit: 700 }
+        ];
+
+        function renderHeaderTitles() {
+            document.getElementById('headerTitle').innerText = currentLang === 'ar' ? appTitles.titleAr : appTitles.titleEn;
+            document.getElementById('headerSubtitle').innerText = currentLang === 'ar' ? appTitles.subtitleAr : appTitles.subtitleEn;
+        }
+
+        function renderStatePills() {
+            const container = document.getElementById('statePills');
+            const states = [
+                { id: 'all', ar: 'الكل', en: 'All' },
+                { id: 'مبرد', ar: 'مبرد (Chilled) ❄️', en: 'Chilled ❄️' },
+                { id: 'مجمد', ar: 'مجمد (Frozen) 🧊', en: 'Frozen 🧊' },
+                { id: 'حي', ar: 'حي (Live) 🦞', en: 'Live 🦞' }
+            ];
+            container.innerHTML = '';
+            states.forEach(st => {
+                const btn = document.createElement('button');
+                btn.className = `pill-btn ${selectedState === st.id ? 'active' : ''}`;
+                btn.innerText = currentLang === 'ar' ? st.ar : st.en;
+                btn.onclick = () => filterState(st.id, btn);
+                container.appendChild(btn);
+            });
+        }
+
+        function renderCategoryPills() {
+            const container = document.getElementById('categoryPills');
+            const itemSel = document.getElementById('itemCategory');
+            const delSel = document.getElementById('deleteCatSelect');
+            const headSel = document.getElementById('headerCatSelect');
+
+            container.innerHTML = '';
+            itemSel.innerHTML = '';
+            delSel.innerHTML = '';
+            headSel.innerHTML = '';
+
+            categories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = `pill-btn ${selectedCategory === cat.id ? 'active' : ''}`;
+                btn.innerText = currentLang === 'ar' ? cat.nameAr : cat.nameEn;
+                btn.onclick = () => filterCategory(cat.id, btn);
+                container.appendChild(btn);
+
+                if (cat.id !== 'all') {
+                    const optionText = currentLang === 'ar' ? cat.nameAr : cat.nameEn;
+                    itemSel.innerHTML += `<option value="${cat.id}">${optionText}</option>`;
+                    delSel.innerHTML += `<option value="${cat.id}">${optionText}</option>`;
+                    headSel.innerHTML += `<option value="${cat.id}">${optionText}</option>`;
+                }
+            });
+        }
+
+        function updateTableHeader() {
+            const tr = document.getElementById('tableHeaderRow');
+            const currentCat = categories.find(c => c.id === selectedCategory) || categories[0];
+            
+            let defaultHeadersAr = ['#', 'اسم الصنف', 'بلد المنشأ', 'حالة المنتج', 'الوحدة', 'سعر الكاش', 'سعر الكريديت'];
+            let defaultHeadersEn = ['#', 'Product Name', 'Origin', 'Status', 'Unit', 'Cash Price', 'Credit Price'];
+
+            let customHeaders = currentLang === 'ar' 
+                ? (currentCat.headers || defaultHeadersAr)
+                : (currentCat.headersEn || defaultHeadersEn);
+
+            let html = `
+                <th style="width:40px;">${customHeaders[0] || '#'}</th>
+                <th>${customHeaders[1] || (currentLang==='ar'?'اسم الصنف':'Product Name')}</th>
+                <th>${customHeaders[2] || (currentLang==='ar'?'بلد المنشأ':'Origin')}</th>
+                <th>${customHeaders[3] || (currentLang==='ar'?'حالة المنتج':'Status')}</th>
+                <th>${customHeaders[4] || (currentLang==='ar'?'الوحدة':'Unit')}</th>
+                <th>${customHeaders[5] || (currentLang==='ar'?'سعر الكاش':'Cash Price')}</th>
+                <th>${customHeaders[6] || (currentLang==='ar'?'سعر الكريديت':'Credit Price')}</th>
+            `;
+
+            if(isAdmin) {
+                html += `<th class="admin-col" style="width:90px;">${currentLang === 'ar' ? 'إجراءات' : 'Actions'}</th>`;
+            }
+
+            tr.innerHTML = html;
+        }
+
+        function renderTable() {
+            updateTableHeader();
+            renderHeaderTitles();
+            const tbody = document.getElementById('priceTableBody');
+            tbody.innerHTML = '';
+            const searchVal = document.getElementById('searchInput').value.toLowerCase();
+
+            const filtered = products.filter(p => {
+                const matchSearch = p.nameAr.toLowerCase().includes(searchVal) || 
+                                    p.nameEn.toLowerCase().includes(searchVal) || 
+                                    (p.origin && p.origin.toLowerCase().includes(searchVal)) ||
+                                    (p.originEn && p.originEn.toLowerCase().includes(searchVal));
+                const matchCat = selectedCategory === 'all' || p.category === selectedCategory;
+                const matchState = selectedState === 'all' || p.state === selectedState;
+                return matchSearch && matchCat && matchState;
+            });
+
+            const countText = currentLang === 'ar' ? `${filtered.length} صنف` : `${filtered.length} Items`;
+            document.getElementById('countTag').innerText = countText;
+
+            filtered.forEach((p, idx) => {
+                let stateText = p.state;
+                if(currentLang === 'en') {
+                    if(p.state === 'مبرد') stateText = 'Chilled';
+                    if(p.state === 'مجمد') stateText = 'Frozen';
+                    if(p.state === 'حي') stateText = 'Live';
+                }
+                if(p.state === 'مبرد') stateText += ' ❄️';
+                if(p.state === 'مجمد') stateText += ' 🧊';
+                if(p.state === 'حي') stateText += ' 🦞';
+
+                const displayTitle = currentLang === 'ar' ? p.nameAr : p.nameEn;
+                const displaySubTitle = currentLang === 'ar' ? p.nameEn : p.nameAr;
+                const displayOrigin = currentLang === 'ar' ? (p.origin || '-') : (p.originEn || p.origin || '-');
+                const displayUnit = currentLang === 'ar' ? p.unit : (p.unitEn || p.unit);
+                const currency = currentLang === 'ar' ? 'ج.م' : 'EGP';
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td style="color:#94a3b8; font-weight:700;">${idx + 1}</td>
+                    <td>
+                        <div style="font-weight:800; color:#0f172a;">${displayTitle}</div>
+                        <div style="font-size:11px; color:#94a3b8;">${displaySubTitle}</div>
+                    </td>
+                    <td><span class="unit-badge" style="background:#e2e8f0; color:#1e293b;">${displayOrigin}</span></td>
+                    <td><span class="unit-badge">${stateText}</span></td>
+                    <td><span class="unit-badge">${displayUnit}</span></td>
+                    <td><div class="price-box">${p.cash ? p.cash.toLocaleString() + ' ' + currency : '-'}</div></td>
+                    <td><div class="price-box" style="background:#f1f5f9; border-color:#cbd5e1; color:#0f172a;">${p.credit ? p.credit.toLocaleString() + ' ' + currency : '-'}</div></td>
+                    ${isAdmin ? `
+                        <td class="admin-col">
+                            <div class="action-btns">
+                                <button class="btn-act btn-act-edit" onclick="editProduct(${p.id})"><i class="fa-solid fa-pen"></i></button>
+                                <button class="btn-act btn-act-del" onclick="deleteProduct(${p.id})"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </td>
+                    ` : ''}
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function setPriceMode(mode) {
+            priceDisplayMode = mode;
+            document.getElementById('btnModeCash').classList.toggle('active', mode === 'cash');
+            document.getElementById('btnModeCredit').classList.toggle('active', mode === 'credit');
+            renderTable();
+        }
+
+        function filterCategory(catId, btn) {
+            selectedCategory = catId;
+            document.querySelectorAll('#categoryPills .pill-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderTable();
+        }
+
+        function filterState(st, btn) {
+            selectedState = st;
+            document.querySelectorAll('#statePills .pill-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderTable();
+        }
+
+        /* Password Verification Handler */
+        function handleAdminToggle() {
+            if(isAdmin) {
+                // If already admin, turn off admin panel
+                isAdmin = false;
+                document.getElementById('adminBar').classList.remove('active');
+                document.getElementById('btnAdminToggle').classList.remove('active');
+                renderTable();
+            } else {
+                // Prompt for password
+                document.getElementById('adminPassInput').value = '';
+                document.getElementById('passwordModal').classList.add('active');
+            }
+        }
+
+        function verifyAdminPassword() {
+            const entered = document.getElementById('adminPassInput').value;
+            if(entered === adminPassword) {
+                isAdmin = true;
+                document.getElementById('adminBar').classList.add('active');
+                document.getElementById('btnAdminToggle').classList.add('active');
+                closeModal('passwordModal');
+                renderTable();
+            } else {
+                alert(currentLang === 'ar' ? 'كلمة السر غير صحيحة!' : 'Incorrect Password!');
+            }
+        }
+
+        function openTitleEditModal() {
+            document.getElementById('inputTitleAr').value = appTitles.titleAr;
+            document.getElementById('inputTitleEn').value = appTitles.titleEn;
+            document.getElementById('inputSubtitleAr').value = appTitles.subtitleAr;
+            document.getElementById('inputSubtitleEn').value = appTitles.subtitleEn;
+            document.getElementById('titleEditModal').classList.add('active');
+        }
+
+        function saveTitleSettings() {
+            appTitles.titleAr = document.getElementById('inputTitleAr').value.trim() || appTitles.titleAr;
+            appTitles.titleEn = document.getElementById('inputTitleEn').value.trim() || appTitles.titleEn;
+            appTitles.subtitleAr = document.getElementById('inputSubtitleAr').value.trim() || appTitles.subtitleAr;
+            appTitles.subtitleEn = document.getElementById('inputSubtitleEn').value.trim() || appTitles.subtitleEn;
+
+            localStorage.setItem('maxim_title_data', JSON.stringify(appTitles));
+            renderHeaderTitles();
+            closeModal('titleEditModal');
+        }
+
+        function openPasswordChangeModal() {
+            document.getElementById('oldPassInput').value = '';
+            document.getElementById('newPassInput').value = '';
+            document.getElementById('changePassModal').classList.add('active');
+        }
+
+        function saveNewPassword() {
+            const oldP = document.getElementById('oldPassInput').value;
+            const newP = document.getElementById('newPassInput').value.trim();
+
+            if(oldP !== adminPassword) {
+                alert(currentLang === 'ar' ? 'كلمة السر الحالية غير صحيحة!' : 'Current password is incorrect!');
+                return;
+            }
+            if(!newP) {
+                alert(currentLang === 'ar' ? 'يرجى إدخال كلمة سر جديدة صالحة!' : 'Please enter a valid new password!');
+                return;
+            }
+
+            adminPassword = newP;
+            localStorage.setItem('maxim_admin_pass', adminPassword);
+            alert(currentLang === 'ar' ? 'تم تغيير كلمة السر بنجاح!' : 'Password updated successfully!');
+            closeModal('changePassModal');
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            document.body.classList.toggle('lang-en', currentLang === 'en');
+            document.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.getElementById('langText').innerText = currentLang === 'ar' ? 'English' : 'العربية';
+
+            // Static Text Translations
+            if(currentLang === 'en') {
+                document.getElementById('txtPriceViewLabel').innerText = 'View Price:';
+                document.getElementById('txtCashLabel').innerText = 'Cash';
+                document.getElementById('txtCreditLabel').innerText = 'Credit';
+                document.getElementById('txtAdminBtn').innerText = 'Admin Mode ⚙️';
+                document.getElementById('txtPrintBtn').innerText = 'Print / PDF';
+                document.getElementById('searchInput').placeholder = 'Search product name...';
+                document.getElementById('txtTableSubHeading').innerText = 'Available Products Price List';
+                document.getElementById('txtTableUpdateDate').innerText = 'Official Update Date: 2026-11-09';
+                
+                // Admin Buttons Translation
+                document.getElementById('txtAdminPanelTitle').innerText = 'Admin Control Panel';
+                document.getElementById('btnAddItemTxt').innerText = 'Add New Item';
+                document.getElementById('btnManageCatTxt').innerText = 'Manage Categories';
+                document.getElementById('btnHeadersTxt').innerText = 'Edit Table Headers';
+                document.getElementById('btnEditTitleTxt').innerText = 'Edit Header Titles';
+                document.getElementById('btnChangePassTxt').innerText = 'Change Password';
+                document.getElementById('btnLogoTxt').innerText = 'Change Logo 🖼️';
+                document.getElementById('btnExportTxt').innerText = 'Export Excel (XLSX)';
+                document.getElementById('btnImportTxt').innerText = 'Import Excel (XLSX)';
+                document.getElementById('btnResetTxt').innerText = 'Reset to Default';
+                
+                // Modal Labels
+                document.getElementById('lblAdminAuth').innerText = 'Admin Mode Login';
+                document.getElementById('lblEnterPassword').innerText = 'Enter password to access settings:';
+                document.getElementById('lblModalTitleSettings').innerText = 'Edit System Header & Titles';
+                document.getElementById('lblChangePassTitle').innerText = 'Change Admin Password';
+            } else {
+                document.getElementById('txtPriceViewLabel').innerText = 'عرض السعر:';
+                document.getElementById('txtCashLabel').innerText = 'كاش (Cash)';
+                document.getElementById('txtCreditLabel').innerText = 'كريديت (Credit)';
+                document.getElementById('txtAdminBtn').innerText = 'وضع الأدمن ⚙️';
+                document.getElementById('txtPrintBtn').innerText = 'طباعة / PDF';
+                document.getElementById('searchInput').placeholder = 'ابحث باسم الصنف...';
+                document.getElementById('txtTableSubHeading').innerText = 'قائمة أسعار المنتجات المتاحة';
+                document.getElementById('txtTableUpdateDate').innerText = 'تاريخ التحديث الرسمي: 2026-11-09';
+
+                // Admin Buttons Translation
+                document.getElementById('txtAdminPanelTitle').innerText = 'لوحة تحكم الأدمن (Admin Panel)';
+                document.getElementById('btnAddItemTxt').innerText = 'إضافة صنف جديد';
+                document.getElementById('btnManageCatTxt').innerText = 'إدارة المجموعات';
+                document.getElementById('btnHeadersTxt').innerText = 'تعديل رؤوس الجدول';
+                document.getElementById('btnEditTitleTxt').innerText = 'تعديل مسمى العنوان';
+                document.getElementById('btnChangePassTxt').innerText = 'تغيير كلمة السر';
+                document.getElementById('btnLogoTxt').innerText = 'تغيير اللوجو 🖼️';
+                document.getElementById('btnExportTxt').innerText = 'تصدير إكسيل (XLSX)';
+                document.getElementById('btnImportTxt').innerText = 'استيراد إكسيل (XLSX)';
+                document.getElementById('btnResetTxt').innerText = 'استعادة الافتراضي';
+
+                // Modal Labels
+                document.getElementById('lblAdminAuth').innerText = 'تسجيل الدخول لوضع الأدمن';
+                document.getElementById('lblEnterPassword').innerText = 'أدخل كلمة السر للدخول للإعدادات:';
+                document.getElementById('lblModalTitleSettings').innerText = 'تعديل عنوان ومسمى النظام';
+                document.getElementById('lblChangePassTitle').innerText = 'تغيير كلمة السر';
+            }
+
+            renderStatePills();
+            renderCategoryPills();
+            renderTable();
+        }
+
+        function openItemModal() {
+            editingProductId = null;
+            document.getElementById('modalItemTitle').innerText = currentLang === 'ar' ? 'إضافة صنف جديد' : 'Add New Item';
+            document.getElementById('itemNameAr').value = '';
+            document.getElementById('itemNameEn').value = '';
+            document.getElementById('itemOrigin').value = '';
+            document.getElementById('itemCashPrice').value = '';
+            document.getElementById('itemCreditPrice').value = '';
+            document.getElementById('itemModal').classList.add('active');
+        }
+
+        function editProduct(id) {
+            const p = products.find(item => item.id === id);
+            if(p) {
+                editingProductId = id;
+                document.getElementById('modalItemTitle').innerText = currentLang === 'ar' ? 'تعديل صنف' : 'Edit Item';
+                document.getElementById('itemNameAr').value = p.nameAr;
+                document.getElementById('itemNameEn').value = p.nameEn;
+                document.getElementById('itemOrigin').value = p.origin || '';
+                document.getElementById('itemCategory').value = p.category;
+                document.getElementById('itemState').value = p.state;
+                document.getElementById('itemUnit').value = p.unit;
+                document.getElementById('itemCashPrice').value = p.cash;
+                document.getElementById('itemCreditPrice').value = p.credit;
+                document.getElementById('itemModal').classList.add('active');
+            }
+        }
+
+        function saveItem() {
+            const nameAr = document.getElementById('itemNameAr').value.trim();
+            const nameEn = document.getElementById('itemNameEn').value.trim();
+            const origin = document.getElementById('itemOrigin').value.trim();
+            const category = document.getElementById('itemCategory').value;
+            const state = document.getElementById('itemState').value;
+            const unit = document.getElementById('itemUnit').value;
+            const cash = parseFloat(document.getElementById('itemCashPrice').value) || 0;
+            const credit = parseFloat(document.getElementById('itemCreditPrice').value) || 0;
+
+            if(!nameAr) return;
+
+            if(editingProductId) {
+                const idx = products.findIndex(p => p.id === editingProductId);
+                if(idx !== -1) {
+                    products[idx] = { id: editingProductId, nameAr, nameEn: nameEn || nameAr, origin, originEn: origin, category, state, unit, cash, credit };
+                }
+            } else {
+                products.push({ id: Date.now(), nameAr, nameEn: nameEn || nameAr, origin, originEn: origin, category, state, unit, cash, credit });
+            }
+
+            localStorage.setItem('maxim_prod_v3', JSON.stringify(products));
+            closeModal('itemModal');
+            renderTable();
+        }
+
+        function deleteProduct(id) {
+            products = products.filter(p => p.id !== id);
+            localStorage.setItem('maxim_prod_v3', JSON.stringify(products));
+            renderTable();
+        }
+
+        function openCategoryManageModal() { document.getElementById('categoryModal').classList.add('active'); }
+        function openHeadersModal() {
+            document.getElementById('headersModal').classList.add('active');
+            loadCatHeadersInModal();
+        }
+        function openLogoModal() { document.getElementById('logoModal').classList.add('active'); }
+        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+
+        function addNewCategory() {
+            const val = document.getElementById('newCatInput').value.trim();
+            if(val) {
+                categories.push({ 
+                    id: val, 
+                    nameAr: val, 
+                    nameEn: val, 
+                    headers: ['#', 'اسم الصنف', 'بلد المنشأ', 'حالة المنتج', 'الوحدة', 'سعر الكاش', 'سعر الكريديت'],
+                    headersEn: ['#', 'Product Name', 'Origin', 'Status', 'Unit', 'Cash Price', 'Credit Price'] 
+                });
+                localStorage.setItem('maxim_cat_v3', JSON.stringify(categories));
+                document.getElementById('newCatInput').value = '';
+                renderCategoryPills();
+            }
+        }
+
+        function deleteSelectedCategory() {
+            const val = document.getElementById('deleteCatSelect').value;
+            if(val) {
+                categories = categories.filter(c => c.id !== val);
+                localStorage.setItem('maxim_cat_v3', JSON.stringify(categories));
+                if(selectedCategory === val) selectedCategory = 'all';
+                renderCategoryPills();
+                renderTable();
+                closeModal('categoryModal');
+            }
+        }
+
+        function loadCatHeadersInModal() {
+            const val = document.getElementById('headerCatSelect').value;
+            const cat = categories.find(c => c.id === val);
+            if(cat) {
+                const targetHeaders = currentLang === 'ar' ? (cat.headers || []) : (cat.headersEn || []);
+                document.getElementById('catHeadersInput').value = targetHeaders.join(', ');
+            }
+        }
+
+        function saveCategoryHeaders() {
+            const val = document.getElementById('headerCatSelect').value;
+            const inputVal = document.getElementById('catHeadersInput').value;
+            const cat = categories.find(c => c.id === val);
+            if(cat && inputVal) {
+                if(currentLang === 'ar') {
+                    cat.headers = inputVal.split(',').map(s => s.trim());
+                } else {
+                    cat.headersEn = inputVal.split(',').map(s => s.trim());
+                }
+                localStorage.setItem('maxim_cat_v3', JSON.stringify(categories));
+                renderTable();
+                closeModal('headersModal');
+            }
+        }
+
+        function handleLogoUpload(e) {
+            const file = e.target.files[0];
+            if(file) {
+                const reader = new FileReader();
+                reader.onload = function(evt) {
+                    const img = document.getElementById('companyLogo');
+                    img.src = evt.target.result;
+                    img.style.display = 'block';
+                    document.getElementById('logoTextFallback').style.display = 'none';
+                    localStorage.setItem('maxim_logo_v3', evt.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        /* Real Excel (.xlsx) Export & Import via SheetJS */
+        function exportDataExcel() {
+            const excelRows = products.map((p, index) => ({
+                'م': index + 1,
+                'اسم الصنف (عربي)': p.nameAr,
+                'اسم الصنف (إنجليزي)': p.nameEn,
+                'بلد المنشأ': p.origin || '',
+                'المجموعة': p.category,
+                'حالة المنتج': p.state,
+                'الوحدة': p.unit,
+                'سعر الكاش': p.cash,
+                'سعر الكريديت': p.credit
+            }));
+
+            const worksheet = XLSX.utils.json_to_sheet(excelRows);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, "قائمة الأسعار");
+            XLSX.writeFile(workbook, `Maxim_Foods_PriceList_${new Date().toISOString().slice(0,10)}.xlsx`);
+        }
+
+        function triggerImportExcel() {
+            document.getElementById('importExcelInput').click();
+        }
+
+        function importDataExcel(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                try {
+                    const data = new Uint8Array(evt.target.result);
+                    const workbook = XLSX.read(data, { type: 'array' });
+                    const firstSheetName = workbook.SheetNames[0];
+                    const worksheet = workbook.Sheets[firstSheetName];
+                    const jsonRows = XLSX.utils.sheet_to_json(worksheet);
+
+                    if (jsonRows.length === 0) {
+                        alert(currentLang === 'ar' ? 'الملف المرفوع فارغ!' : 'Uploaded file is empty!');
+                        return;
+                    }
+
+                    const importedProducts = jsonRows.map((row, idx) => ({
+                        id: Date.now() + idx,
+                        nameAr: row['اسم الصنف (عربي)'] || row['اسم الصنف'] || 'صنف جديد',
+                        nameEn: row['اسم الصنف (إنجليزي)'] || row['Name'] || '',
+                        origin: row['بلد المنشأ'] || row['المنشأ'] || '',
+                        originEn: row['بلد المنشأ'] || row['المنشأ'] || '',
+                        category: row['المجموعة'] || row['التصنيف'] || 'سلمون',
+                        state: row['حالة المنتج'] || 'مجمد',
+                        unit: row['الوحدة'] || 'كيلو',
+                        cash: parseFloat(row['سعر الكاش']) || 0,
+                        credit: parseFloat(row['سعر الكريديت']) || 0
+                    }));
+
+                    products = importedProducts;
+                    localStorage.setItem('maxim_prod_v3', JSON.stringify(products));
+                    renderCategoryPills();
+                    renderTable();
+                    alert(currentLang === 'ar' ? `تم استيراد ${importedProducts.length} صنف بنجاح من ملف الإكسيل!` : `Successfully imported ${importedProducts.length} items from Excel!`);
+                } catch (err) {
+                    alert(currentLang === 'ar' ? 'حدث خطأ أثناء قراءة ملف الإكسيل! يرجى التأكد من تنسيق الأعمدة.' : 'Error reading Excel file!');
+                }
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        function resetToDefault() {
+            if(confirm(currentLang === 'ar' ? 'هل تريد إعادة الضبط للافتراضي؟' : 'Reset all data to default?')) {
+                localStorage.removeItem('maxim_prod_v3');
+                localStorage.removeItem('maxim_cat_v3');
+                localStorage.removeItem('maxim_logo_v3');
+                localStorage.removeItem('maxim_title_data');
+                localStorage.removeItem('maxim_admin_pass');
+                location.reload();
+            }
+        }
+
+        // Init Logo
+        const savedLogo = localStorage.getItem('maxim_logo_v3');
+        if(savedLogo) {
+            const img = document.getElementById('companyLogo');
+            img.src = savedLogo;
+            img.style.display = 'block';
+            document.getElementById('logoTextFallback').style.display = 'none';
+        }
+
+        renderStatePills();
+        renderCategoryPills();
+        renderTable();
+    </script>
+
+</body></html>
